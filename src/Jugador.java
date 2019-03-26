@@ -1,42 +1,69 @@
+import java.util.Scanner;
 
-public class Jugador { // MODIFICAR CLASE A PARTIR DE AQUÍ
-		//Atributos
+public class Jugador {
 
-		String nombre_personaje = "character_name";
-		int id_enemigo = 0;
-		int vida_personaje = 100;
-		int tipo_ataque = 1;
-		String nombre_ataque1 = "attack1_name";
-		String nombre_ataque2 = "attack2_name";
-		String nombre_ataque3 = "attack3_name";
-		int potencia_ataque = 1;
+	// Atributos
+	Scanner entrada = new Scanner(System.in);
+	
+	String nombre = "";
+	int vida = 100;
+	String nombre_habilidad;
+	int score = 0;
 
-		//Métodos
-		public int[] definir_ataque() {
+	
+	// Métodos
+	
+	public int accion() {
+		System.out.println("Selecciona una acción: ");
+		System.out.println("1 - ATAQUE");
+		System.out.println("2 - DEFENSA");
+		int accion = entrada.nextInt();
 
-			int dados = (int)(Math.random()*100);
-			System.out.println("Tirada de dados... "+ '¡'+ nombre_personaje + " ha obtenido un " + dados + '!');
+		while ((accion != 1) && (accion != 2)) {
+			System.out.println("1 - ATAQUE");
+			System.out.println("2 - DEFENSA");
+			accion = entrada.nextInt();
+		}
 
-			if (dados >=0 && dados <60) {
-				potencia_ataque = potencia_ataque*dados; 
-				tipo_ataque = 1;
-			} 
-			else if (dados >=60 && dados <75) {
-				potencia_ataque *= dados;
-				tipo_ataque = 2;
+		return accion;
+	}
+
+	public int ataque() {
+
+		int dados = (int) (Math.random() * 100);
+		System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
+
+		if (dados <= 49) { // 50%
+			nombre_habilidad = "PROCRASINACIÓN";
+		} else {
+			nombre_habilidad = "STACK OVERFLOW";
+		}
+		return dados;
+	} // Fin ataque()
+
+	public int defensa() {
+		int dados = (int) (Math.random() * 100);
+		System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
+		nombre_habilidad = "un VIDEO-TUTORIAL";
+		return dados;
+	} // Fin defensa()
+
+	public void estado() {
+		if (vida > 0) {
+		System.out.println("------------------------------------------------------------");
+		System.out.println('[' + nombre.toUpperCase() + ']');
+		System.out.println(
+				"ENERGÍA: " + '[' + new String(new char[Math.round(vida / 10)]).replace("\0", "#") + "] " + vida);
+		System.out.println("------------------------------------------------------------");
+		}
+		else {
+			vida = 0;
+			System.out.println("------------------------------------------------------------");
+			System.out.println('[' + nombre.toUpperCase() + ']');
+			System.out.println(
+					"ENERGÍA: " + "[ ]" + vida);
+			System.out.println("------------------------------------------------------------");
 			}
-			else { 
-				potencia_ataque = potencia_ataque*dados;
-				tipo_ataque = 3; 
-			}
+	} // Fin estado()
 
-			int[] ataque = {tipo_ataque, potencia_ataque};	
-			return ataque;
-		} // Fin método definir_ataque()
-
-		public void estado() {
-			System.out.println('['+nombre_personaje.toUpperCase()+']');
-			System.out.println("ENERGÍA: "+'['+new String(new char[Math.round(vida_personaje/10)]).replace("\0", "#")+"] "+ vida_personaje);
-		} // Fin método estado()
-
-	} // Fin clase Jugador
+} // Fin clase Jugador

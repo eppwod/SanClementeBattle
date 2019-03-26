@@ -1,43 +1,58 @@
-import java.util.Scanner;
 
 public class Profe {
-	//Atributos
-	
+
+	// Atributos
+
 	String nombre = "character_name";
 	int id_profe = 0;
-	int vida_profe = 100;
-	int tipo_ataque = 1;
-	String nombre_ataque1 = "attack1_name";
-	String nombre_ataque2 = "attack2_name";
-	String nombre_ataque3 = "attack3_name";
-	int potencia_ataque = 1;
+	int vida = 100;
+	String nombre_ataque = "";
+	String nombre_ataque1 = "";
+	String nombre_ataque2 = "";
+	String nombre_ataque3 = "";
+	String frase1 = "";
+	String frase2 = "";
+	String frase3 = "";
 
-	//Métodos
-	public int[] definir_ataque() {
-		
-		int dados = (int)(Math.random()*100);
-		System.out.println("Tirada de dados... "+ '¡'+ nombre + " ha obtenido un " + dados + '!');
+	// Métodos
+	public int get_vida() {
+		if (vida < 0) {
+			vida = 0;
+		}
 
-		if (dados >=0 && dados <60) {
-			potencia_ataque = potencia_ataque*dados; 
-			tipo_ataque = 1;
-		} 
-		else if (dados >=60 && dados <75) {
-			potencia_ataque *= dados;
-			tipo_ataque = 2;
+		return vida;
+	}
+
+	public int ataque() {
+
+		int dados = (int) (Math.random() * 100);
+		System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
+
+		if (dados >= 0 && dados < 45) { // 45%
+			nombre_ataque = nombre_ataque1;
+		} else if (dados >= 45 && dados < 75) { // 30%
+			nombre_ataque = nombre_ataque2;
+		} else { // 25%
+			nombre_ataque = nombre_ataque3;
 		}
-		else { 
-			potencia_ataque = potencia_ataque*dados;
-			tipo_ataque = 3; 
-		}
-		
-		int[] ataque = {tipo_ataque, potencia_ataque};	
-		return ataque;
+
+		return dados;
 	} // Fin método definir_ataque()
-	
+
 	public void estado() {
-		System.out.println('['+nombre.toUpperCase()+']');
-		System.out.println("ENERGÍA: "+'['+new String(new char[Math.round(vida_profe/10)]).replace("\0", "#")+"] "+ vida_profe);
+		if (vida > 0) {
+			System.out.println("------------------------------------------------------------");
+			System.out.println("                              [" + nombre.toUpperCase() + ']');
+			System.out.println("                              ENERGÍA: " + '['
+					+ new String(new char[Math.round(vida / 10)]).replace("\0", "#") + "] " + vida);
+			System.out.println("------------------------------------------------------------");
+		} else {
+			vida = 0;
+			System.out.println("------------------------------------------------------------");
+			System.out.println("                              [" + nombre.toUpperCase() + ']');
+			System.out.println("                              ENERGÍA: " + "[ ] " + vida);
+			System.out.println("------------------------------------------------------------");
+		}
 	} // Fin método estado()
-	
+
 } // Fin clase Personaje
