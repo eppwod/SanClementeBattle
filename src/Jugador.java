@@ -31,10 +31,10 @@ public class Jugador {
 	public int ataque() {
 
 		int dados = (int) (Math.random() * 100);
-		System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
+		// System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
 
-		if (dados <= 49) { // 50%
-			nombre_habilidad = "PROCRASINACIÓN";
+		if (dados <= 60) { // 60%
+			nombre_habilidad = "PEREZA";
 		} else {
 			nombre_habilidad = "STACK OVERFLOW";
 		}
@@ -43,26 +43,24 @@ public class Jugador {
 
 	public int defensa() {
 		int dados = (int) (Math.random() * 100);
-		System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
+		// System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
 		nombre_habilidad = "un VIDEO-TUTORIAL";
 		return dados;
 	} // Fin defensa()
 
 	public void estado() {
 		if (vida > 0) {
-		System.out.println("------------------------------------------------------------");
 		System.out.println('[' + nombre.toUpperCase() + ']');
 		System.out.println(
 				"ENERGÍA: " + '[' + new String(new char[Math.round(vida / 10)]).replace("\0", "#") + "] " + vida);
-		System.out.println("------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------------------------------------------------------------");
 		}
 		else {
 			vida = 0;
-			System.out.println("------------------------------------------------------------");
 			System.out.println('[' + nombre.toUpperCase() + ']');
 			System.out.println(
 					"ENERGÍA: " + "[ ]" + vida);
-			System.out.println("------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------");
 			}
 	} // Fin estado()
 

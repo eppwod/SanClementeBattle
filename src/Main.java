@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,243 +11,188 @@ public class Main {
 
 		// Ojeto de la clase Jugador
 		Jugador jugador = new Jugador();
-		System.out.println("Nombre de tu personaje: ");
+		System.out.println("Escribe tu nombre para comenzar: ");
 		jugador.nombre = entrada.nextLine().toUpperCase();
-		
-		System.out.println("¡Hola "+jugador.nombre+"! Te espera un desafío importante... ¡Buena suerte en la batalla del San Clemente!");
 
-		int id_profe = 1; // Inicializo la variable que identifica al profe en 1
+		// Texto de bienvenida
+		System.out.println("¡Hola " + jugador.nombre
+				+ "! Te espera un desafío importante... ¡Buena suerte en la batalla del San Clemente!");
+		System.out.println("");
+		System.out.println("");
 		
-		// Creo los objetos de la clase Profe
-		Profe profe1 = new Profe(); // Boss Miguel
-		profe1.nombre = "Miguel";
-		profe1.id_profe = 1;
-		profe1.nombre_ataque1 = "PDF";
-		profe1.nombre_ataque2 = "PRÁCTICA DE TALLER";
-		profe1.nombre_ataque3 = "QUINCE TAREAS EN MESTRE";
-		profe1.frase1 = "MIGUEL: ¡Hola, soy Miguel y esto es SISTEMAS INFORMÁTICOS en directo desde el San Clemente!";
-		profe1.frase2 = "MIGUEL: Ya me diréis cuándo queréis la fecha de entrega jejeje...";
-		profe1.frase3 = "MIGUEL: Enhorabuena "+jugador.nombre+", ahora sabes usar un puto PC.";
-		
-		Profe profe2 = new Profe(); // Boss Meritxell
-		profe2.nombre = "Meritxell";
-		profe2.id_profe = 2;
-		profe2.nombre_ataque1 = "LA BUROCRASIA";
-		profe2.nombre_ataque2 = "ATAQUE CUENTACUENTOS";
-		profe2.nombre_ataque3 = "NÓMINA";
-		profe2.frase1 = "MERITXELL: FOL es tu asignatura favorita pero todavía no lo sabes jijiji...";
-		profe2.frase2 = "MERITXELL: Prepárate porque el mundo laboral es todavía más duro que esto.";
-		profe2.frase3 = "MERITXELL: Has aprobado FOL, joven. Ahora puedes ejercer la abogacía.";
-		
-		Profe profe3 = new Profe(); // Boss Isaac
-		profe3.nombre = "Isaac";
-		profe3.id_profe = 3;
-		profe3.nombre_ataque1 = "W3C";
-		profe3.nombre_ataque2 = "FRIKADA";
-		profe3.nombre_ataque3 = "BORDER-RADIUS";
-		
-		Profe profe4 = new Profe(); // Boss Enrique
-		profe4.nombre = "Enrique";
-		profe4.id_profe = 4;
-		profe4.nombre_ataque1 = "COACHING";
-		profe4.nombre_ataque2 = "PULL REQUEST";
-		profe4.nombre_ataque3 = "GIT MERGE";
-		
-		Profe profe5 = new Profe(); // Boss Fran
-		profe5.nombre = "Fran";
-		profe5.id_profe = 5;
-		profe5.nombre_ataque1 = "TEORÍA";
-		profe5.nombre_ataque2 = "PC VIEJO";
-		profe5.nombre_ataque3 = "EXAMEN";
-		
-		Profe profe6 = new Profe(); // Boss Álex
-		profe6.nombre = "Álex";
-		profe6.id_profe = 5;
-		profe6.nombre_ataque1 = "ESQUEMA";
-		profe6.nombre_ataque2 = "RISA MALVADA";
-		profe6.nombre_ataque3 = "LEFT OUTER JOIN";
-		
+		// Objetos de la clase Profe
+		Profe profe0 = new Profe(); // Boss Miguel
+		profe0.nombre = "MIGUEL";
+		profe0.dificultad = 1.0f;
+		profe0.nombre_ataque1 = "GOLPE DE PDF";
+		profe0.nombre_ataque2 = "PRÁCTICA DE TALLER";
+		profe0.nombre_ataque3 = "SUBIR QUINCE TAREAS EN MESTRE";
+		profe0.frase1 = "MIGUEL: ¡Hola, soy el profe de SISTEMAS INFORMÁTICOS!"; // Saludo
+		profe0.frase2 = "MIGUEL: Ya me diréis cuándo queréis la fecha de entrega jejeje..."; // Frase que dice al lanzar un ataque muy efectivo
+		profe0.frase3 = "MIGUEL: Enhorabuena " + jugador.nombre + ", ahora sabes usar un puto PC."; // Jugador gana
+		profe0.frase4 = "MIGUEL: Te he ganado... haz captura de pantalla a esto y lo subes al Mestre."; // Jugador pierde
+
+		Profe profe1 = new Profe(); // Boss Meritxell
+		profe1.nombre = "MERITXELL";
+		profe1.dificultad = 1.1f;
+		profe1.nombre_ataque1 = "LA BUROCRASIA";
+		profe1.nombre_ataque2 = "UNA HISTORIA SOBRE LA VIDA Y SUS MOVIDAS";
+		profe1.nombre_ataque3 = "NÓMINA";
+		profe1.frase1 = "MERITXELL: FOL es tu asignatura favorita pero todavía no lo sabes jijiji...";
+		profe1.frase2 = "MERITXELL: Prepárate porque el mundo laboral es todavía más duro que esto.";
+		profe1.frase3 = "MERITXELL: Has aprobado FOL, joven. Ahora puedes ejercer la abogacía.";
+		profe1.frase4 = "MERITXELL: Según la Ley Orgánica de Educación 2/2006 del 3 de mayo, te suspendo y pierdes el juego por tolai :)";
+
+		Profe profe2 = new Profe(); // Boss Isaac
+		profe2.nombre = "ISAAC";
+		profe2.dificultad = 1.2f;
+		profe2.nombre_ataque1 = "UVEDOBLE TRES ESCULS";
+		profe2.nombre_ataque2 = "CURIOSIDADES DE INTERNET";
+		profe2.nombre_ataque3 = "BORDER-RADIUS";
+		profe2.frase1 = "ISAAC: ¡Qué tal chavales! ";
+		profe2.frase2 = "ISAAC: ¿Sabes qué tiene también los bordes redondeados? Un 0 jejejeje...";
+		profe2.frase3 = "ISAAC: ";
+		profe2.frase4 = "";
+
+		Profe profe3 = new Profe(); // Boss Enrique
+		profe3.nombre = "ENRIQUE";
+		profe3.dificultad = 1.3f;
+		profe3.nombre_ataque1 = "ATAQUE JIT";
+		profe3.nombre_ataque2 = "PULL REQUEST";
+		profe3.nombre_ataque3 = "PASAR LISTA";
+		profe3.frase1 = "ENRIQUE: ¡Hola! Esto es Contornos de Desenvolvemento... ¡veamos qué tienes!";
+		profe3.frase2 = "ENRIQUE: Estudiante, dentro de un rato mira Abalar... ¡Tienes un regalo de tu amigo Agrasar!";
+		profe3.frase3 = "ENRIQUE: Apasionante...";
+		profe3.frase4 = "ENRIQUE: No te preocupes, "+jugador.nombre+". Perder es solo otra forma de ganar... Pero has perdido jajaja";
+
+		Profe profe4 = new Profe(); // Boss Fran
+		profe4.nombre = "ÁLEX";
+		profe4.dificultad = 1.4f;
+		profe4.nombre_ataque1 = "PUÑETAZO TEÓRICO";
+		profe4.nombre_ataque2 = "RISA MALVADA";
+		profe4.nombre_ataque3 = "LEFT OUTER JOIN";
+		profe4.frase1 = "ÁLEX: No te preocupes, Bases de Datos es una asignatura facililla...";
+		profe4.frase2 = "ÁLEX: SELECT guantazo from MI_MANO where (mano_destino = tu cara);";
+		profe4.frase3 = "ÁLEX: ¡Bien hecho "+jugador.nombre+"! Te he enseñado bien. Sólo te falta una asignatura.. ¿Has estudiado?";
+		profe4.frase4 = "ÁLEX: Se siente, haber estudiao...";
+
+		Profe profe5 = new Profe(); // Boss Álex
+		profe5.nombre = "FRAN";
+		profe5.dificultad = 1.5f;
+		profe5.nombre_ataque1 = "TEORÏA";
+		profe5.nombre_ataque2 = "CHISTACO";
+		profe5.nombre_ataque3 = "HOSTIA TUPLA";
+		profe5.frase1 = "FRAN: if ("+jugador.nombre+".vida < mucho) {estás jodido;}";
+		profe5.frase2 = "FRAN: Eres débil, estudiante. ¡En cuanto acabe contigo me voy corriendo a matar dragones a puñetazos!";
+		profe5.frase3 = "FRAN: Has ganado esta batalla. Quizá algún día serás dígno del título de \"Programador\"... ¡pero nos veremos antes de eso MUAJAJAJAJA!";
+		profe5.frase4 = "FRAN: Casi lo consigues pero te has flipado colega. Ala, a tu casa :)";
+
+		Profe arrayProfes[] = new Profe[6];
+
+		arrayProfes[0] = profe0;
+		arrayProfes[1] = profe1;
+		arrayProfes[2] = profe2;
+		arrayProfes[3] = profe3;
+		arrayProfes[4] = profe4;
+		arrayProfes[5] = profe5;
+
 		// Bucle principal del juego
-		while ((id_profe <= 6) && (jugador.vida > 0)) { // El jugador tiene vida y quedan bosses por vencer
+		for (int x = 0; x < arrayProfes.length; x++) {
+			System.out.println("");
+			System.out.println("");
+			System.out.println(arrayProfes[x].nombre + " salvaje apareció!");
+			System.out.println(arrayProfes[x].frase1);
+
+			int turno = 0;
 			
-			if ((id_profe == 1) && (jugador.vida > 0)) { // El jugador tiene vida y le toca enfrentarse al profe 1
+			arrayProfes[x].estado();
+			jugador.estado();
+			
+			while ((jugador.vida > 0) && (arrayProfes[x].vida > 0)) {
 
-				int turno = 0; // El turno 0 será el del jugador y el 1 el del profe
-				
-				System.out.println("¡Un "+profe1.nombre+" salvaje apareció!");
-				System.out.println(profe1.frase1);
-				
-				while ((profe1.vida > 0) && (jugador.vida > 0)) { // Empieza el combate con el profe 1
+				if (turno == 0) {
+
+					System.out.println("¡Es el turno de " + jugador.nombre + '!');
+					int accion = jugador.accion();
+					if (accion == 1) { // El jugador ataca
+						int daño = jugador.ataque();
+						System.out.println('¡' + jugador.nombre + " ha usado " + jugador.nombre_habilidad + '!');
+						arrayProfes[x].vida = arrayProfes[x].vida - daño;
+						if ((daño >= 0) && (daño <= 59)) { // Mensaje fin de turno
+							System.out.println("No es muy efectivo...");
+							System.out.println("Haces " + daño + " puntos de daño...");
+						} else {
+							System.out.println("¡Es muy efectivo!");
+							System.out.println("Haces " + daño + " puntos de daño...");
+						}
+					} // if accion == 1
+					else { // El jugador se defiende
+						int sanacion = jugador.defensa();
+						jugador.vida = jugador.vida + sanacion;
+
+						System.out.println('¡' + jugador.nombre + ", has usado " + jugador.nombre_habilidad + '!');
+						System.out.println("¡Ganas " + sanacion + " puntos de energía!");
+					} // accion == 2
+
+					turno = 1;
 					
-					if (turno == 0) { // Turno del jugador
+				} // if (turno == 0)
+				else { // Turno == 1
+					System.out.println("");
+					System.out.println("");
+					System.out.println("¡Es el turno de " + arrayProfes[x].nombre + '!');
 
-						profe1.estado();
-						jugador.estado();
+					int daño = arrayProfes[x].ataque();
 
-						System.out.println("¡Es el turno de " + jugador.nombre + '!');
-						int accion = jugador.accion();
-						if (accion == 1) { // El jugador ataca
-							int daño = jugador.ataque();
-							System.out.println('¡' + jugador.nombre + " usa " + jugador.nombre_habilidad + '!');
-							profe1.vida = profe1.vida-daño;
-							if ((daño >= 0) && (daño < 49)) { // Mensaje fin de turno
-								System.out.println("No es muy efectivo...");
-								System.out.println("Haces " + daño + "puntos de daño...");
-							} else {
-								System.out.println("¡Es muy efectivo!");
-								System.out.println("Haces " + daño + "puntos de daño...");
-							}
-						}
-						else { // El jugador se defiende
-							int sanacion = jugador.defensa();
-							jugador.vida = jugador.vida+sanacion;
-							
-							System.out.println('¡' + jugador.nombre + ", has usado " + jugador.nombre_habilidad + '!');
-							System.out.println("¡Te has curado "+sanacion+" puntos!");
-							
-						}
+					System.out.println(arrayProfes[x].nombre + " usó " + arrayProfes[x].nombre_ataque + "...");
 
-						turno = 1;
+					if (arrayProfes[x].nombre_ataque == arrayProfes[x].nombre_ataque1) {
+						jugador.vida = jugador.vida - daño;
+						System.out.println("No es muy efectivo...");
+						System.out.println("Recibes " + daño + " puntos de daño.");
+					} else if (arrayProfes[x].nombre_ataque == arrayProfes[x].nombre_ataque2) {
+						jugador.vida = jugador.vida + daño;
+						arrayProfes[x].vida = arrayProfes[x].vida + daño;
+						System.out.println("¡El gran poder de " + arrayProfes[x].nombre + " ha captado la atención de la clase!");
+						System.out.println('¡'+arrayProfes[x].nombre+" ha subido tu energía " + daño + " puntos!");
+						System.out.println('¡' + arrayProfes[x].nombre + " también recibe " + daño + " puntos de energía!");
+
+					} else if (arrayProfes[x].nombre_ataque == arrayProfes[x].nombre_ataque3) {
+						jugador.vida = jugador.vida - daño;
+						System.out.println("¡Es muy efectivo!");
+						System.out.println("Recibes " + daño + " puntos de daño.");
+						System.out.println(arrayProfes[x].frase2);
 					}
 
-					if (turno == 1) { // Turno del profe
-						
-						System.out.println("¡Es el turno de " + profe1.nombre + '!');
-						
-						int daño = profe1.ataque();
+					turno = 0;
 
-						System.out.println(profe1.nombre + " usó " + profe1.nombre_ataque + "...");
-
-						if (profe1.nombre_ataque == profe1.nombre_ataque1) {
-							jugador.vida = jugador.vida-daño;
-							System.out.println("No es muy efectivo...");
-							System.out.println("Recibes " + daño + " puntos de daño.");
-						} else if (profe1.nombre_ataque == profe1.nombre_ataque2) {
-							jugador.vida = jugador.vida+daño;
-							profe1.vida = profe1.vida+daño;
-							System.out.println('¡' + profe1.nombre + " ha captado tu atención!");
-							System.out.println("¡Te has curado "+daño+" puntos!");
-							System.out.println('¡'+profe1.nombre+" se ha curado "+daño+"puntos!");
-							
-						} else if (profe1.nombre_ataque == profe1.nombre_ataque3) {
-							jugador.vida = jugador.vida-daño;
-							System.out.println("¡Es muy efectivo!");
-							System.out.println("Recibes " + daño + " puntos de daño.");
-							System.out.println(profe1.frase2);
-						}
-					turno = 0;	
-					} // Fin turno profe
-				} // Fin combate con profe1
-				
-				System.out.println("¡Has derrotado a "+profe1.nombre+"!");
-				System.out.println(profe1.frase3);
-				
-				id_profe++;
-				
-			} // Fin pre-combate. Ahora el id_ profe es 2
-			
-			
-			else if ((id_profe == 2) && (jugador.vida > 0)) { // El jugador tiene vida y le toca enfrentarse al profe 2
-				
-				int turno = 0; // El turno 0 será el del jugador y el 1 el del profe
-				
-				System.out.println(profe2.nombre+" salvaje apareció!");
-				System.out.println(profe2.frase1);
-				
-				while ((profe2.vida > 0) && (jugador.vida > 0)) { // Empieza el combate con el profe 2
-					
-					if (turno == 0) { // Turno del jugador
-
-						profe2.estado();
-						jugador.estado();
-
-						System.out.println("¡Es el turno de " + jugador.nombre + '!');
-						int accion = jugador.accion();
-						if (accion == 1) { // El jugador ataca
-							int daño = jugador.ataque();
-							System.out.println('¡' + jugador.nombre + " usa " + jugador.nombre_habilidad + '!');
-							profe2.vida = profe2.vida-daño;
-							if ((daño >= 0) && (daño < 49)) { // Mensaje fin de turno
-								System.out.println("No es muy efectivo...");
-								System.out.println("Haces " + daño + "puntos de daño...");
-							} else {
-								System.out.println("¡Es muy efectivo!");
-								System.out.println("Haces " + daño + "puntos de daño...");
-							}
-						}
-						else { // El jugador se defiende
-							int sanacion = jugador.defensa();
-							jugador.vida = jugador.vida+sanacion;
-							
-							System.out.println('¡' + jugador.nombre + ", has usado " + jugador.nombre_habilidad + '!');
-							System.out.println("¡Te has curado "+sanacion+" puntos!");
-							
-						}
-
-						turno = 1;
+					if (jugador.vida <= 0) {
+						break;
 					}
-
-					if (turno == 1) { // Turno del profe
-						
-						System.out.println("¡Es el turno de " + profe2.nombre + '!');
-						
-						int daño = profe2.ataque();
-
-						System.out.println(profe2.nombre + " usó " + profe2.nombre_ataque + "...");
-
-						if (profe2.nombre_ataque == profe2.nombre_ataque1) {
-							jugador.vida = jugador.vida-daño;
-							System.out.println("No es muy efectivo...");
-							System.out.println("Recibes " + daño + " puntos de daño.");
-						} else if (profe2.nombre_ataque == profe2.nombre_ataque2) {
-							jugador.vida = jugador.vida+daño;
-							profe2.vida = profe2.vida+daño;
-							System.out.println('¡' + profe2.nombre + " ha captado tu atención!");
-							System.out.println("¡Te has curado "+daño+" puntos!");
-							System.out.println('¡'+profe2.nombre+" se ha curado "+daño+"puntos!");
-							
-						} else if (profe2.nombre_ataque == profe2.nombre_ataque3) {
-							jugador.vida = jugador.vida-daño;
-							System.out.println("¡Es muy efectivo!");
-							System.out.println("Recibes " + daño + " puntos de daño.");
-							System.out.println(profe2.frase2);
-						}
-					turno = 0;	
-					} // Fin turno profe
-				} // Fin combate con profe1
-				
-				System.out.println("¡Has derrotado a "+profe2.nombre+"!");
-				System.out.println(profe2.frase3);
-				
-				id_profe++;
-				
-			} // Fin pre-combate. Ahora el id_ profe es 3
-				
-				
-				
-			
-			
-			else if ((id_profe == 3) && (jugador.vida > 0)) { // El jugador tiene vida y le toca enfrentarse al profe 3
-				
-			} 
-			else if ((id_profe == 4) && (jugador.vida > 0)) { // El jugador tiene vida y le toca enfrentarse al profe 4
-				
-			} 
-			else if ((id_profe == 5) && (jugador.vida > 0)) { // El jugador tiene vida y le toca enfrentarse al profe 5
-				
-			} 
-			else if ((id_profe == 6) && (jugador.vida > 0)) { // El jugador tiene vida y le toca enfrentarse al profe 6
-				
-			} 
-			else { // O bien el jugador no tiene vida o bien se ha pasado el juego
-				if (jugador.vida > 0) {
-					// GANAS
-				} else {
-					// PIERDES
-				}
-
+					System.out.println("");
+					System.out.println("");
+					
+					arrayProfes[x].estado();
+					jugador.estado();
+					
+				} // turno == 1
+			} // while ((jugador.vida > 0)&&(arrayProfes[i].vida > 0))
+			if (jugador.vida > 0) {
+				// Jugador gana
+				System.out.println("¡Has derrotado a " + arrayProfes[x].nombre + '!');
+				System.out.println(arrayProfes[x].frase3);
+				System.out.println("");
+				System.out.println("");
+			} else {
+				// Jugador pierde
+				System.out.println(arrayProfes[x].nombre + " te ha derrotado...");
+				System.out.println(arrayProfes[x].frase4);
+				System.out.println("Mala suerte, " + jugador.nombre + ". Casi lo consigues...");
+				System.exit(0);
 			}
-		}
+		} // for (int i=0;i<=arrayProfes.length;i++)
 
-} // Fin método main
-} // Fin clase principal
+		System.out.println("¡Enhorabuena estudiante! Has ganado la Batalla del San Clemente...");
+		System.out.println("La Guerra continuará el próximo curso. Disfruta las vacaciones... ");
+	} // Método main
+} // Clase principal

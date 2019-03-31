@@ -4,8 +4,8 @@ public class Profe {
 	// Atributos
 
 	String nombre = "character_name";
-	int id_profe = 0;
 	int vida = 100;
+	float dificultad = 1.00f;
 	String nombre_ataque = "";
 	String nombre_ataque1 = "";
 	String nombre_ataque2 = "";
@@ -13,6 +13,7 @@ public class Profe {
 	String frase1 = "";
 	String frase2 = "";
 	String frase3 = "";
+	String frase4 = "";
 
 	// Métodos
 	public int get_vida() {
@@ -25,8 +26,8 @@ public class Profe {
 
 	public int ataque() {
 
-		int dados = (int) (Math.random() * 100);
-		System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
+		int dados = (int) ((Math.random() * 100)*dificultad);
+		// System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
 
 		if (dados >= 0 && dados < 45) { // 45%
 			nombre_ataque = nombre_ataque1;
@@ -41,17 +42,16 @@ public class Profe {
 
 	public void estado() {
 		if (vida > 0) {
-			System.out.println("------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("                              [" + nombre.toUpperCase() + ']');
 			System.out.println("                              ENERGÍA: " + '['
 					+ new String(new char[Math.round(vida / 10)]).replace("\0", "#") + "] " + vida);
-			System.out.println("------------------------------------------------------------");
+
 		} else {
 			vida = 0;
-			System.out.println("------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("                              [" + nombre.toUpperCase() + ']');
 			System.out.println("                              ENERGÍA: " + "[ ] " + vida);
-			System.out.println("------------------------------------------------------------");
 		}
 	} // Fin método estado()
 
