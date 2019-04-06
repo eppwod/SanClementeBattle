@@ -1,3 +1,4 @@
+// Tengo que modificar esto con SET y GET
 
 public class Profe {
 
@@ -16,18 +17,20 @@ public class Profe {
 	String frase4 = "";
 
 	// Métodos
-	public int get_vida() {
-		if (vida < 0) {
-			vida = 0;
+
+	public int get_vida() { // Preguntar a Fran cómo hacer bien esta movida
+		if (this.vida < 0) {
+			this.vida = 0;
 		}
 
-		return vida;
+		return this.vida;
 	}
 
 	public int ataque() {
 
-		int dados = (int) ((Math.random() * 100)*dificultad);
-		// System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un " + dados + '!');
+		int dados = (int) ((Math.random() * 100) * dificultad);
+		// System.out.println("Tirada de dados... " + '¡' + nombre + " ha obtenido un "
+		// + dados + '!');
 
 		if (dados >= 0 && dados < 45) { // 45%
 			nombre_ataque = nombre_ataque1;
@@ -42,14 +45,16 @@ public class Profe {
 
 	public void estado() {
 		if (vida > 0) {
-			System.out.println("------------------------------------------------------------------------------------------------------------------------");
+			System.out.println(
+					"------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("                              [" + nombre.toUpperCase() + ']');
 			System.out.println("                              ENERGÍA: " + '['
 					+ new String(new char[Math.round(vida / 10)]).replace("\0", "#") + "] " + vida);
 
 		} else {
 			vida = 0;
-			System.out.println("------------------------------------------------------------------------------------------------------------------------");
+			System.out.println(
+					"------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("                              [" + nombre.toUpperCase() + ']');
 			System.out.println("                              ENERGÍA: " + "[ ] " + vida);
 		}
